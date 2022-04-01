@@ -1,0 +1,75 @@
+﻿
+@{
+    ViewBag.Title = "ListView";
+}
+
+<div ng-app="MyApp" ng-controller="ProductController">
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0 text-dark">Product</h1>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="../Product/AddNewProduct">Add New Product</a></li>
+
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+
+
+                <div class="row">
+
+                    <div class="col-md-12">
+
+                        <table class="table table-responsive">
+                            <tr>
+                                <td>SL#</td>
+                                <td>Product Name</td>
+                                <td>Product Description</td>
+                                <td>Product Price</td>
+                                <td>Product Stock</td>
+                                <td>Product Category</td>
+                                <td>Product Weight</td>
+                                <td>Edit</td>
+                                <td>Delete</td>
+                            </tr>
+
+                            <tr ng-repeat="d in Product">
+                                <td>{{d.SL}}</td>
+                                <td>{{d.ProductName}}</td>
+                                <td>{{d.ProductDescription}}</td>
+                                <td>{{d.ProductPrice}}</td>
+                                <td>{{d.ProductStock}}</td>
+                                <td>{{d.ProductCategory}}</td>
+                                <td>{{d.ProductWeight}}</td>
+                                <td>
+                                    <a href="/Product/UpdateProduct?MasterId={{d.ProductId}}" class="btn btn-warning">Edit</a>
+                                </td>
+                                <td><a ng-click="DeleteMAsterData(d.ProductId)" class="btn btn-danger">Delete</a> </td>
+
+                            </tr>
+                        </table>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </div>
+</div>
+
+<script src="~/Scripts/angular.min.js"></script>
+<script src="~/Scripts/AngularController/ProductControllerJS.js"></script>
+
+
